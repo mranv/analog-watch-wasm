@@ -17,7 +17,7 @@ npm run build
 
 echo "Build completed successfully!"
 echo "Contents of www/dist directory:"
-ls -R ../www/dist
+ls -R dist
 
 echo "Contents of www/pkg directory:"
-ls -R ../www/pkg
+ls -R pkg
