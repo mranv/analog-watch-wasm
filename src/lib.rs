@@ -1,5 +1,6 @@
 use wasm_bindgen::prelude::*;
 use js_sys::Date;
+use web_sys::console;
 
 #[wasm_bindgen]
 pub struct AnalogWatch {
@@ -12,6 +13,7 @@ pub struct AnalogWatch {
 impl AnalogWatch {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
+        console::log_1(&"AnalogWatch created".into());
         Self {
             hours: 0.0,
             minutes: 0.0,
@@ -39,3 +41,7 @@ impl AnalogWatch {
     }
 }
 
+#[wasm_bindgen(start)]
+pub fn run() {
+    console::log_1(&"WebAssembly module loaded".into());
+}

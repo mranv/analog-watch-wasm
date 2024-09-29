@@ -1,12 +1,23 @@
 #!/bin/bash
 set -e
 
-# Build Rust to WebAssembly
+echo "Building Rust to WebAssembly..."
 wasm-pack build --target web
 
-# Install npm dependencies
+echo "Copying WebAssembly files to www/pkg directory..."
+mkdir -p www/pkg
+cp pkg/* www/pkg/
+
+echo "Installing npm dependencies..."
 cd www
 npm install
 
-# Build the React app
+echo "Building the React app..."
 npm run build
+
+echo "Build completed successfully!"
+echo "Contents of www/dist directory:"
+ls -R ../www/dist
+
+echo "Contents of www/pkg directory:"
+ls -R ../www/pkg
